@@ -1,0 +1,23 @@
+logging:
+  level:
+    root: info
+Spring:
+    kafka:
+      bootstrapServers: 172.16.2.106:9092,172.16.2.98:9092,172.16.2.182:9092
+      consumer:
+        enable-auto-commit: false
+        auto-offset-reset: earliest
+        key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+        properties:
+          spring:
+            json:
+              trusted:
+                packages: com.example.kafkademo01.demo
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+spring:
+  kafka:
+    consumer:
+      group-id: mail-group-id
